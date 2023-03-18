@@ -840,7 +840,7 @@ export function createClient<
 
     // normal closure (possibly all subscriptions have completed)
     // if no locks were acquired in the meantime, shouldnt try again
-    if (isLikeCloseEvent(errOrCloseEvent) && errOrCloseEvent.code === 1000)
+    if (isLikeCloseEvent(errOrCloseEvent))
       return locks > 0;
 
     // retries are not allowed or we tried to many times, report error
